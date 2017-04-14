@@ -1,0 +1,7 @@
+#editor backup files
+*.bk
+
+# compiled binaries
+*.a
+*.o
+
