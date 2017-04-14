@@ -1,0 +1,16 @@
+[package]
+name = "BaMiRuFFI"
+version = "0.1.0"
+build = "build.rs"
+authors = ["Rafael Bachmann <triolenzunge@gmail.com>"]
+
+[build-dependencies]
+bindgen = "0.20.0"
+gcc = "0.3.43"
+
+[dependencies]
+libc = "0.2"
+
+# LeakSanitizer doesn't work reliably with opt-level=0
+[profile.dev]
+opt-level = 1
