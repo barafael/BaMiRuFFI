@@ -4,7 +4,6 @@
 #![allow(non_snake_case)]
 
 /* Include the automatically generated bindings */
-#[allow(improper_ctypes)] // TODO: Right place here? What does this do?
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 extern crate libc;
@@ -22,7 +21,6 @@ fn main() {
     }
 }
 
-#[no_mangle]
 pub extern fn how_many_characters(s: *const c_char) -> uint32_t {
     let c_str = unsafe {
         assert!(!s.is_null());

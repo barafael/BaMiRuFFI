@@ -1,12 +1,12 @@
 #include "library.h"
 
 int hello_world_static() {
-    printf("Hello World from C! (inline static string)");
+    printf("Hello World from C! (inline static string)\n");
     return 0;
 }
 
 char* hello_world_return_pointer() {
-    char* hello = malloc(100);
+    char* hello = malloc(BUFSIZE);
     hello = "Hello World!";
     return hello;
 }
