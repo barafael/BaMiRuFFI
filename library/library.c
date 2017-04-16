@@ -7,6 +7,6 @@ int hello_world_static() {
 
 char* hello_world_return_pointer() {
     char* hello = malloc(BUFSIZE);
-    hello = "Hello World!";
+    strcpy(hello, "Hello World!");
     return hello;
 }

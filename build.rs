@@ -10,7 +10,7 @@ fn main() {
 
     // Use the bindgen builder to create a binding, adding options
     let bindings = bindgen::Builder::default()
-        .raw_line("#[allow(improper_ctypes)]") // what does this do?
+        //.raw_line("#[allow(improper_ctypes)]") // what does this do?
         .generate_comments(true)
         // Output bindings for builtin definitions, e.g. __builtin_va_list (which mpc uses)
         .emit_builtins()
