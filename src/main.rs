@@ -15,13 +15,13 @@ use std::str;
 fn main() {
     println!("Hello World from Rust main function.");
     unsafe {
-    hello_world_static();
-    let greeting: *mut i8 = hello_world_return_pointer();
-    println!("{}", how_many_characters(greeting));
+        hello_world_static();
+        let greeting: *mut i8 = hello_world_return_pointer();
+        println!("{}", my_strlen(greeting));
     }
 }
 
-pub extern fn how_many_characters(s: *const c_char) -> uint32_t {
+pub extern "C" fn my_strlen(s: *const c_char) -> uint32_t {
     let c_str = unsafe {
         assert!(!s.is_null());
 
