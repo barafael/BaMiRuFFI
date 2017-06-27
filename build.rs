@@ -12,7 +12,7 @@ fn main() {
     let bindings = bindgen::Builder::default()
         //.raw_line("#[allow(improper_ctypes)]") // what does this do?
         .generate_comments(true)
-        // Output bindings for builtin definitions, e.g. __builtin_va_list (which mpc uses)
+        // Output bindings for builtin definitions, e.g. __builtin_va_list
         .emit_builtins()
         // Emit no unstable/nightly Rust code
         .no_unstable_rust()
@@ -28,4 +28,3 @@ fn main() {
     bindings.write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 }
-
