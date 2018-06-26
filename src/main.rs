@@ -10,21 +10,28 @@ extern crate libc;
 
 use libc::{c_char, uint32_t};
 use std::ffi::CStr;
-use std::str;
 
 fn main() {
     println!("Hello World from Rust main function.");
     unsafe {
         hello_world_static();
         let greeting: *mut i8 = hello_world_return_pointer();
+        print_char_pointer(greeting);
         println!("{}", my_strlen(greeting));
     }
 }
 
-pub extern "C" fn my_strlen(s: *const c_char) -> uint32_t {
+fn print_char_pointer(s: *const c_char) {
     let c_str = unsafe {
         assert!(!s.is_null());
+        CStr::from_ptr(s)
+    };
+    println!("{:?}", c_str);
+}
 
+fn my_strlen(s: *const c_char) -> uint32_t {
+    let c_str = unsafe {
+        assert!(!s.is_null());
         CStr::from_ptr(s)
     };
 
