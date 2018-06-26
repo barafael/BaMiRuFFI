@@ -6,7 +6,10 @@ use std::path::PathBuf;
 
 fn main() {
     // Let the gcc crate handle all the C library compilation and linking
-    gcc::compile_library("liblibrary.a", &["library/library.c"]);
+    gcc::Build::new()
+        .file("library/library.c")
+        .include("library")
+        .compile("library");
 
     // Use the bindgen builder to create a binding, adding options
     let bindings = bindgen::Builder::default()
