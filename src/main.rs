@@ -8,7 +8,7 @@ include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 extern crate libc;
 
-use libc::{c_char, uint32_t};
+use libc::c_char;
 use std::ffi::CStr;
 
 fn main() {
@@ -29,12 +29,12 @@ fn print_char_pointer(s: *const c_char) {
     println!("{:?}", c_str);
 }
 
-fn my_strlen(s: *const c_char) -> uint32_t {
+fn my_strlen(s: *const c_char) -> u32 {
     let c_str = unsafe {
         assert!(!s.is_null());
         CStr::from_ptr(s)
     };
 
     let r_str = c_str.to_str().unwrap();
-    r_str.chars().count() as uint32_t
+    r_str.chars().count() as u32
 }

@@ -5,11 +5,11 @@ build = "build.rs"
 authors = ["Rafael Bachmann <triolenzunge@gmail.com>"]
 
 [build-dependencies]
-bindgen = "0.20.0"
-gcc = "0.3.43"
+bindgen = "0.50.0"
+cc = "1.0.37"
 
 [dependencies]
-libc = "0.2"
+libc = "0.2.60"
 
 # LeakSanitizer doesn't work reliably with opt-level=0
 [profile.dev]

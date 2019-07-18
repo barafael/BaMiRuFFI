@@ -1,12 +1,12 @@
 extern crate bindgen;
-extern crate gcc;
+extern crate cc;
 
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Let the gcc crate handle all the C library compilation and linking
-    gcc::Build::new()
+    // Let the cc crate handle all the C library compilation and linking
+    cc::Build::new()
         .file("library/library.c")
         .include("library")
         .compile("library");
@@ -18,7 +18,7 @@ fn main() {
         // Output bindings for builtin definitions, e.g. __builtin_va_list
         .emit_builtins()
         // Emit no unstable/nightly Rust code
-        .no_unstable_rust()
+        //.no_unstable_rust()
         // The input header we would like to generate bindings for
         .header("library/library.h")
         // Finish the builder and generate the bindings
