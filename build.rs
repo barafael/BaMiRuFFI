@@ -17,8 +17,6 @@ fn main() {
         .generate_comments(true)
         // Output bindings for builtin definitions, e.g. __builtin_va_list
         .emit_builtins()
-        // Emit no unstable/nightly Rust code
-        //.no_unstable_rust()
         // The input header we would like to generate bindings for
         .header("library/library.h")
         // Finish the builder and generate the bindings
