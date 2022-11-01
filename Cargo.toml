@@ -5,7 +5,7 @@ build = "build.rs"
 authors = ["Rafael Bachmann <triolenzunge@gmail.com>"]
 
 [build-dependencies]
-bindgen = "0.59.2"
+bindgen = "0.61.0"
 cc = "1.0.72"
 
 [dependencies]
